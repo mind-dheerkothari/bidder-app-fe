@@ -8,7 +8,6 @@ import {
   Badge,
   Button,
 } from "reactstrap";
-import "./auctionBids.scss";
 import CustomBadge from "../../sharedComponents/customBadge/CustomBadge";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,10 +49,10 @@ export default function AuctionBids() {
     toggleModal()
   }
   return (
-    <div className="auction-bids-wrapper p-4">
+    <div className="p-4">
       {isLoading && <Loader />}
       <Col md="12">
-        <h4 className="mb-4">
+        <h4 className="text-xl font-semibold text-primary mb-5">
           Bids for Auction #{params?.auction_id}~
           {auctionBidList?.auction?.item_name}
         </h4>
@@ -61,10 +60,10 @@ export default function AuctionBids() {
         <Row>
           {auctionBidList?.bids?.map((bid) => (
             <Col md="6" lg="3" key={bid?.id} className="mb-4">
-              <Card className="shadow-sm h-100">
-                <CardBody>
+              <Card className="shadow-sm h-100 !rounded-2xl !border !border-[#e5e3e4] !bg-white transition-all duration-200 hover:!-translate-y-1 hover:!shadow-[0_6px_14px_rgba(0,0,0,0.08)] hover:!border-[#d1cfd0]">
+                <CardBody className="!p-5">
                   {/* Bidder Info */}
-                  <div className="bidder-info">
+                  <div className="flex items-center mb-[15px]">
                     {/* <img
                       src={bid.bidder.avatar}
                       alt=""
@@ -76,16 +75,16 @@ export default function AuctionBids() {
                       className="rounded-circle me-3"
                     />
                     <div>
-                      <h6 className="mb-0">
+                      <h6 className="mb-0 text-base font-medium text-primary">
                         {capitalizeFirstChar(bid?.bidder?.first_name)}{" "}
                         {bid?.bidder?.last_name}
                       </h6>
-                      <small className="text-muted">{bid?.bidder?.email}</small>
+                      <small className="text-[13px] text-secondary">{bid?.bidder?.email}</small>
                     </div>
                   </div>
 
                   {/* Bid Details */}
-                  <div className="bid-details">
+                  <div className="mb-3 [&_strong]:font-medium [&_strong]:text-secondary [&_span]:font-semibold [&_span]:text-primary">
                     <div>
                       <strong>Bid Amount:</strong>{" "}
                       <span>&#8377; {bid?.bid_amount}</span>
@@ -107,12 +106,13 @@ export default function AuctionBids() {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="action-buttons">
+                  <div className="flex justify-between gap-[10px]">
                     <Button
                       color="success"
                       size="sm"
                       disabled={bid?.bid_status !== "pending"}
                       onClick={()=>handleActionClick(bid, "approve")}
+                      className="flex-1 !rounded-[30px] !text-sm !font-medium !py-2 !px-0 transition-all duration-200 disabled:cursor-not-allowed !bg-brand-gradient !border-none hover:!bg-[linear-gradient(89.28deg,#6a1f2d_5.99%,#9f3247_94.17%)]"
                     >
                       Approve
                     </Button>
@@ -121,6 +121,7 @@ export default function AuctionBids() {
                       size="sm"
                       disabled={bid?.bid_status !== "pending"}
                       onClick={()=>handleActionClick(bid, "reject")}
+                      className="flex-1 !rounded-[30px] !text-sm !font-medium !py-2 !px-0 transition-all duration-200 disabled:cursor-not-allowed !bg-[#ef4444] !border-none hover:!bg-[#d63d3d]"
                     >
                       Reject
                     </Button>

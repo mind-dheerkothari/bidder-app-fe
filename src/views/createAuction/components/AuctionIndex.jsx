@@ -169,7 +169,7 @@ export default function AuctionIndex({ auctionData }) {
         isStepCompleted={isStepCompleted}
       />
       {/* Component goes here on the basis of active index */}
-      <div className="auction-form-card container-fluid">
+      <div className="w-full min-h-[650px] p-10 rounded-2xl bg-white container-fluid">
         {activeStep === 0 && (
           <AuctionDetails
             createAuctionState={createAuctionState}
@@ -205,8 +205,12 @@ export default function AuctionIndex({ auctionData }) {
         )}
 
         {/* Button for next and prev */}
-        <div className="d-flex justify-content-center align-items-cents gap-4 mt-4 auction-stepper-btn">
-          <button onClick={handlePrev} disabled={activeStep === 0}>
+        <div className="d-flex justify-content-center align-items-cents gap-4 mt-4">
+          <button
+            onClick={handlePrev}
+            disabled={activeStep === 0}
+            className="bg-transparent outline-none border-none w-[186px] h-[52px] p-4 rounded-[62px] text-black flex justify-center items-center font-bold text-base disabled:cursor-not-allowed disabled:bg-[#f2f0f1] disabled:opacity-50 disabled:text-black"
+          >
             Previous
           </button>
           <button
@@ -218,7 +222,7 @@ export default function AuctionIndex({ auctionData }) {
               }
             }}
             disabled={!isStepValid(activeStep)}
-            className="next-btn"
+            className="outline-none border-none w-[186px] h-[52px] p-4 rounded-[62px] flex justify-center items-center font-bold text-base bg-primary text-white disabled:cursor-not-allowed disabled:bg-[#f2f0f1] disabled:opacity-50 disabled:text-black"
           >
             {activeStep === createAuctionStep?.length - 1
               ? auctionData

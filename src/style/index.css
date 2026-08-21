@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply m-0 p-0 font-roboto text-primary bg-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply m-0 font-roboto;
+  }
+
+  label {
+    @apply block mb-2 font-poppins text-base font-normal leading-6 text-secondary;
+  }
+}
+
+/*
+ * A small set of classes that were reused identically, by literal class
+ * name, across many unrelated components (form inputs/buttons, error text,
+ * card wrappers). Kept here via @apply instead of being inlined everywhere
+ * to avoid 30+ call sites drifting out of sync. Everything else was
+ * converted to inline Tailwind utility classes directly on the elements.
+ */
+@layer components {
+  .custom-input-box {
+    @apply w-full h-[50px] px-[15px] py-[10px] border border-secondary rounded-lg text-base font-roboto bg-white;
+  }
+  .custom-input-box:focus {
+    @apply outline-none shadow-none bg-white;
+    border-color: #d7d3df !important;
+  }
+
+  .custom-button {
+    @apply w-full h-[52px] p-4 border-0 !rounded-[62px] bg-brand-gradient font-roboto text-base font-medium leading-[18.75px] text-center text-white cursor-pointer transition-[background] duration-300 outline-none;
+  }
+  .custom-button:hover {
+    @apply bg-brand-gradient-hover;
+  }
+  .custom-button:disabled {
+    @apply bg-secondary cursor-not-allowed;
+  }
+
+  .secondary-button {
+    @apply w-full h-[52px] p-4 border-0 !rounded-[62px] bg-placeholder font-roboto text-base font-medium leading-[18.75px] text-center text-white cursor-pointer transition-[background] duration-300 outline-none;
+  }
+  .secondary-button:hover {
+    @apply bg-brand-gradient-hover;
+  }
+  .secondary-button:disabled {
+    @apply bg-secondary cursor-not-allowed;
+  }
+
+  .error {
+    @apply text-red-600;
+  }
+
+  .icon-hover {
+    @apply cursor-pointer transition-colors duration-200;
+  }
+  .icon-hover.view:hover {
+    @apply text-blue-500;
+  }
+  .icon-hover.edit:hover {
+    @apply text-green-500;
+  }
+  .icon-hover.delete:hover {
+    @apply text-red-500;
+  }
+
+  .table-card-wrapper {
+    @apply bg-white p-[10px] rounded-2xl;
+  }
+
+  .light-grey-bg {
+    background-color: #f2f0f1;
+  }
+
+  .action-link {
+    @apply text-blue-500 cursor-pointer;
+  }
+  .action-link.disable {
+    @apply cursor-not-allowed text-[#d7d3df];
+  }
+
+  .reset-filter-btn {
+    @apply p-[10px] border border-secondary rounded text-black bg-transparent min-w-[150px];
+  }
+  .reset-filter-btn:hover {
+    @apply border-none bg-[rgb(89,89,248)] text-white;
+  }
+}

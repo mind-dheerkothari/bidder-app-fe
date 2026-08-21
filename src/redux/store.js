@@ -9,7 +9,7 @@ const persistConfig = {
   storage,
   transforms: [
     encryptTransform({
-      secretKey: process.env.REACT_APP_ENCRYPT_KEY,
+      secretKey: import.meta.env.VITE_ENCRYPT_KEY,
       onError: function (error) {
         console.log(`Encryption error:`, error)
       },
@@ -24,7 +24,7 @@ const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: false,
     }),
-  devTools: process.env.NODE_ENV === "development",
+  devTools: import.meta.env.DEV,
 });
 export const persistor = persistStore(store);
 export default store;

@@ -1,0 +1,8 @@
+/*
+ * react-quill renders its own editor DOM (.ql-editor) that we can't reach
+ * with Tailwind utilities on our own JSX elements, so this stays as plain
+ * scoped CSS.
+ */
+.custom-editor-wrapper .ql-editor {
+  min-height: 50vh;
+}

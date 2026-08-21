@@ -1,9 +1,8 @@
 import React from 'react'
 import AuctionIndex from './components/AuctionIndex'
-import './createAuction.scss'
 export default function CreateAuction() {
   return (
-    <div className='create-auction-wrapper'>
+    <div className='h-[calc(100vh-80px)] bg-[#f2f0f1] p-10'>
       <AuctionIndex />
     </div>
   )

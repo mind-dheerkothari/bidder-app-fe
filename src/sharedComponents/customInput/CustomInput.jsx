@@ -1,5 +1,4 @@
 import React from "react";
-import "./customInput.scss";
 import { Input, Label } from "reactstrap";
 export default function CustomInput({
   label,
@@ -26,9 +25,9 @@ export default function CustomInput({
     }
   };
   return (
-    <div className="custom-input-wrapper">
+    <div className="flex flex-col gap-[5px]">
       {label && (
-        <Label for={name}>
+        <Label for={name} className="!text-black !font-bold !m-0">
           {label}
           {required && <span className="text-danger ms-1">*</span>}
         </Label>
@@ -43,9 +42,9 @@ export default function CustomInput({
         onChange={handleChange}
         onKeyPress={onKeyPress}
         disabled={disabled}
-        className="input-box"
+        className="!p-[10px] !border !border-secondary !rounded-[5px] !bg-transparent !text-black focus:!border-none focus:!outline-none placeholder:!text-placeholder"
       />
-      {error && <span className="error">{error}</span>}
+      {error && <span className="error text-xs">{error}</span>}
     </div>
   );
 }

@@ -1,0 +1,24 @@
+/*
+ * react-slick renders its own DOM (.slick-list, .slick-prev/.slick-next
+ * arrows, .slick-slide) that we don't control via JSX className props, so
+ * these few rules stay as plain scoped CSS rather than Tailwind utilities.
+ * Everything else in this component is inline Tailwind.
+ */
+.custom-slider-wrapper .slick-list {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.custom-slider-wrapper .slick-prev::before,
+.custom-slider-wrapper .slick-next::before {
+  font-size: 20px;
+  color: #9f3247;
+  opacity: 1;
+}
+.custom-slider-wrapper .slick-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.custom-slider-wrapper .slick-slide img {
+  border-radius: 20px;
+}

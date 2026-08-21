@@ -1,0 +1,27 @@
+/*
+ * react-multi-date-picker renders its own input/calendar DOM (.rmdp-input,
+ * .rmdp-container) that we can't reach with Tailwind utilities on our own
+ * JSX elements, so these stay as plain scoped CSS.
+ */
+.custom-date-picker-wrapper .rmdp-input {
+  padding: 10px;
+  height: 100%;
+  border: 1px solid #a19d9e;
+  border-radius: 5px;
+  background: transparent;
+  color: black;
+  width: 100%;
+  box-shadow: none;
+}
+.custom-date-picker-wrapper .rmdp-input::placeholder {
+  color: #a9a9a9;
+}
+.custom-date-picker-wrapper .rmdp-input:disabled {
+  cursor: not-allowed;
+}
+.custom-date-picker-wrapper .rmdp-container {
+  width: 100% !important;
+}
+.custom-date-picker-wrapper .rmdp-container svg {
+  right: 10px !important;
+}

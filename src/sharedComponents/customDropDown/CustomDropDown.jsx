@@ -2,7 +2,7 @@ import React from "react";
 import Select from "react-select";
 import { FormGroup, Label } from "reactstrap";
 import makeAnimated from "react-select/animated";
-import "./customDropDown.scss";
+import "./customDropDown.css";
 const animatedComponents = makeAnimated();
 
 export default function CustomDropDown({
@@ -28,10 +28,10 @@ export default function CustomDropDown({
   };
 
   return (
-    <div className="custom-dropdown-wrapper">
+    <div className="custom-dropdown-wrapper flex flex-col gap-[5px]">
       <FormGroup>
         {label && (
-          <Label className="form-label">
+          <Label className="form-label !text-black !font-bold !m-0 !mb-[5px]">
             {label}
             {required && <span className="text-danger ms-1">*</span>}
           </Label>

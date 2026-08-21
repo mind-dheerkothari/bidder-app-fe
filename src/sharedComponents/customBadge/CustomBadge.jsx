@@ -1,5 +1,4 @@
 import React from "react";
-import "./customBadge.scss";
 import { GoDotFill } from "react-icons/go";
 import { capitalizeFirstChar } from "../../utils/commonFunction";
 
@@ -22,7 +21,10 @@ const CustomBadge = ({ title, colorCode = "blue", }) => {
   const colors = bgColor[colorCode] || bgColor.blue;
 
   return (
-    <div className="custom-badge" style={{ backgroundColor: colors.backColor }}>
+    <div
+      className="inline-flex h-6 pt-1 pr-3 pb-1 pl-2 items-center gap-[10px] rounded-2xl text-xs font-normal leading-5 w-fit"
+      style={{ backgroundColor: colors.backColor }}
+    >
       <GoDotFill color={colors.dotColor} />
       {capitalizeFirstChar(title)}
     </div>

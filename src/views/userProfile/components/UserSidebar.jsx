@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./userSidebar.scss";
 import { FaHome, FaGavel, FaCog, FaSignOutAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -32,13 +31,13 @@ export default function UserSidebar() {
     navigate(routeConstants.SIGN_IN);
   };
   return (
-    <div className="user-sidebar-wrapper p-4 pt-2">
-      <div className="sidebar-card">
-        <p className="welcome-text">
+    <div className="flex p-4 pt-2">
+      <div className="w-[250px] max-h-[300px] p-5 border border-[#ddd] shadow-[0_0_20px_10px_#5f2ded05] rounded-[20px] bg-white">
+        <p className="mb-5 font-bold">
           Welcome, {capitalizeFirstChar(loginUserDetails?.first_name)}{" "}
           {capitalizeFirstChar(loginUserDetails?.last_name)}
         </p>
-        <div className="menu">
+        <div className="flex flex-col">
           {menuItems.map((item) => (
             <div
               key={item.id}
@@ -49,15 +48,17 @@ export default function UserSidebar() {
                 }
                 setActiveTab(item.id);
               }}
-              className={`menu-item ${activeTab === item.id ? "active" : ""}`}
+              className={`flex items-center p-[10px] cursor-pointer rounded-lg transition-colors duration-300 hover:bg-[#e0e0e0] ${
+                activeTab === item.id ? "text-[#673ab7] font-bold" : ""
+              }`}
             >
-              <span className="icon">{item?.icon}</span>
-              <span className="label">{item?.label}</span>
+              <span className="mr-[10px]">{item?.icon}</span>
+              <span>{item?.label}</span>
             </div>
           ))}
         </div>
       </div>
-      <div className="content">
+      <div className="flex-1 ml-5">
         {activeTab === "dashboard" && <h1>Dashboard components</h1>}
         {activeTab === "auctionList" && <MyAuctionList />}
         {activeTab === "bidList" && <MyBidList />}

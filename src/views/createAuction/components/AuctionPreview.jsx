@@ -8,33 +8,33 @@ export default function AuctionPreview({
   createAuctionState,
 }) {
   return (
-    <div className="auction-preview-wrapper">
+    <div className="p-4">
       {/* Auction Details */}
-      <Card className="auction-card">
+      <Card className="mb-6 rounded-xl">
         <CardHeader className="d-flex justify-content-between align-items-center">
-          <p className="card-title">Auction Detail</p>
+          <p className="font-bold m-0">Auction Detail</p>
           <img
             src={editIcon}
             alt="Edit"
-            className="edit-icon"
+            className="w-5 h-5 cursor-pointer"
             onClick={() => handelEditClick(0)}
           />
         </CardHeader>
-        <CardBody>
-          <p className="product-name">
+        <CardBody className="[&>p]:my-[0.3rem] [&_strong]:text-[#333]">
+          <p>
             Product Name: <strong>{createAuctionState?.productName}</strong>
           </p>
-          <p className="base-price">
+          <p>
             Base Price: <strong>{createAuctionState?.basePrice}/-</strong>
           </p>
-          <p className="category">
+          <p>
             Category: <strong>{createAuctionState?.category?.label}</strong>
           </p>
-          <p className="start-date">
+          <p>
             Start Date:{" "}
             {formatDate(createAuctionState?.startDate, "DD-MM-YYYY hh:mm A")}
           </p>
-          <p className="end-date">
+          <p>
             End Date:{" "}
             {formatDate(createAuctionState?.endDate, "DD-MM-YYYY hh:mm A")}{" "}
           </p>
@@ -42,13 +42,13 @@ export default function AuctionPreview({
       </Card>
 
       {/* Auction Description */}
-      <Card className="auction-card">
+      <Card className="mb-6 rounded-xl">
         <CardHeader className="d-flex justify-content-between align-items-center">
-          <p className="card-title">Auction Description</p>
+          <p className="font-bold m-0">Auction Description</p>
           <img
             src={editIcon}
             alt="Edit"
-            className="edit-icon"
+            className="w-5 h-5 cursor-pointer"
             onClick={() => handelEditClick(1)}
           />
         </CardHeader>
@@ -62,20 +62,24 @@ export default function AuctionPreview({
       </Card>
 
       {/* Auction Photos */}
-      <Card className="auction-card">
+      <Card className="mb-6 rounded-xl">
         <CardHeader className="d-flex justify-content-between align-items-center">
-          <p className="card-title">Auction Photos</p>
+          <p className="font-bold m-0">Auction Photos</p>
           <img
             src={editIcon}
             alt="Edit"
-            className="edit-icon"
+            className="w-5 h-5 cursor-pointer"
             onClick={() => handelEditClick(2)}
           />
         </CardHeader>
         <CardBody>
           <div className="d-flex gap-4 flex-wrap">
             {createAuctionState?.photos?.map((item) => (
-              <img src={item?.url} alt="Auction" className="auction-image" />
+              <img
+                src={item?.url}
+                alt="Auction"
+                className="w-full h-auto max-w-[200px] max-h-[200px] rounded-lg object-cover bg-[#f5f5f5]"
+              />
             ))}
           </div>
         </CardBody>

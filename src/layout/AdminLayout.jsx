@@ -1,13 +1,12 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import AdminSidebar from '../adminSidebar/AdminSidebar'
-import './layout.scss'
 export default function AdminLayout() {
   return (
     <>
-     <div className="admin-layout">
+     <div className="flex h-screen">
       <AdminSidebar />
-      <div className="admin-content">
+      <div className="flex-1 overflow-y-auto bg-[#f9fafb]">
         <Outlet />
       </div>
      </div>

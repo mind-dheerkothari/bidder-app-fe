@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Button, FormGroup, Label, Spinner } from "reactstrap";
 import { signInSchema } from "../../utils/validationSchema";
-import "./auth.scss";
 import AuthDetails from "./AuthDetails";
 import eye from "../../assets/icons/eye.svg";
 import eyeHide from "../../assets/icons/eye_hide.svg";
@@ -37,10 +36,10 @@ export default function Signin() {
   };
 
   return (
-    <div className="signup-wrapper">
-      <div className="signup-card row m-0">
+    <div className="bg-bg-grey p-10 min-h-screen">
+      <div className="rounded-[20px] bg-white row m-0">
         {/* Form Section */}
-        <div className="col-12 col-md-12 col-lg-6 form-section">
+        <div className="col-12 col-md-12 col-lg-6 py-20 px-[60px] md:max-lg:p-5">
           <Formik
             initialValues={signupInitialValues}
             validationSchema={signInSchema}
@@ -48,8 +47,10 @@ export default function Signin() {
           >
             {({ errors, touched }) => (
               <Form>
-                <div className="heading">
-                  <h2>Signin</h2>
+                <div>
+                  <h2 className="text-[40px] font-bold leading-[45px] text-primary mb-[30px] md:max-lg:text-center lg:text-left">
+                    Signin
+                  </h2>
                 </div>
                 {/* Email */}
                 <FormGroup>
@@ -75,7 +76,7 @@ export default function Signin() {
                   <Label>
                     Password <span className="error">*</span>
                   </Label>
-                  <div className="password-input-container">
+                  <div className="relative">
                     <Field
                       type={isPasswordView ? "text" : "password"}
                       name="password"
@@ -85,12 +86,13 @@ export default function Signin() {
                       placeholder="Enter Password"
                     />
                     <div
-                      className="eye-icon"
+                      className="absolute cursor-pointer right-10 top-[25px]"
                       onClick={() => setIsPasswordView(!isPasswordView)}
                     >
                       <img
                         src={isPasswordView ? eye : eyeHide}
                         alt="password hide"
+                        className="w-5 h-5"
                       />
                     </div>
                     <ErrorMessage
@@ -127,7 +129,7 @@ export default function Signin() {
         </div>
 
         {/* Details Section */}
-        <div className="col-12 col-md-12 col-lg-6  details-section">
+        <div className="col-12 col-md-12 col-lg-6">
           <AuthDetails formType="signin" />
         </div>
       </div>

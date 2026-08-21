@@ -7,7 +7,7 @@ import paginationFactory, {
   PaginationTotalStandalone,
 } from "react-bootstrap-table2-paginator";
 import cellEditFactory from "react-bootstrap-table2-editor";
-import "./customTable.scss";
+import "./customTable.css";
 
 function CustomTable(props) {
   const {

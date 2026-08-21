@@ -216,7 +216,7 @@ export default function MyAuctionList() {
   return (
     <div>
       {isLoading && <Loader />}
-      <div className="content-card">
+      <div className="table-card-wrapper">
         <MyAuctionFilter
           filterState={filterState}
           handleApply={handleApply}

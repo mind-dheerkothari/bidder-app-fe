@@ -1,7 +1,6 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Button, FormGroup, Label, Spinner } from "reactstrap";
-import "./auth.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePasswordSchema } from "../../utils/validationSchema";
 import { useNavigate, useParams } from "react-router-dom";
@@ -38,10 +37,10 @@ export default function ResetPassword() {
   };
 
   return (
-    <div className="signup-wrapper">
-      <div className="signup-card row m-0">
+    <div className="bg-bg-grey p-10 min-h-screen">
+      <div className="rounded-[20px] bg-white row m-0">
         {/* Form Section */}
-        <div className="form-section">
+        <div className="py-20 px-[60px] md:max-lg:p-5">
           <Formik
             initialValues={initialValues}
             validationSchema={updatePasswordSchema}
@@ -49,8 +48,10 @@ export default function ResetPassword() {
           >
             {({ errors, touched }) => (
               <Form>
-                <div className="heading d-flex justify-content-center">
-                  <h2>Update Password</h2>
+                <div className="d-flex justify-content-center">
+                  <h2 className="text-[40px] font-bold leading-[45px] text-primary mb-[30px]">
+                    Update Password
+                  </h2>
                 </div>
 
                 {/* Row for 6 by 6 Grid */}

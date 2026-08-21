@@ -1,5 +1,5 @@
 import React from "react";
-import "./customDatePicker.scss";
+import "./customDatePicker.css";
 import { FormGroup, Label } from "reactstrap";
 import DatePicker from "react-multi-date-picker";
 import TimePicker from "react-multi-date-picker/plugins/time_picker";
@@ -42,10 +42,10 @@ export default function CustomDatePicker({
     }
   };
   return (
-    <div className="custom-date-picker-wrapper">
+    <div className="custom-date-picker-wrapper flex flex-col">
       <FormGroup>
         {label && (
-          <Label className="form-label">
+          <Label className="form-label !text-black !font-bold !m-0 !mb-[5px]">
             {label}
             {required && <span className="text-danger ms-1">*</span>}
           </Label>

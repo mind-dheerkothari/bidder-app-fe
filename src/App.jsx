@@ -1,122 +1,103 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-
+import { useDispatch, useSelector } from "react-redux";
+import "./style/index.css";
+import { useEffect } from "react";
+import { fetchTestData } from "./redux/slices/testSlice";
+import Signup from "./views/auth/Signup";
+import Signin from "./views/auth/Signin";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ForgotPassword from "./views/auth/ForgotPassword";
+import VerifyAccount from "./views/auth/VerifyAccount";
+import ResetPassword from "./views/auth/ResetPassword";
+import { routeConstants } from "./utils/routeConstant";
+import Header from "./views/header/Header";
+import Home from "./views/home/Home";
+import AuctionDetails from "./views/auctionDetails/AuctionDetails";
+import CreateAuction from "./views/createAuction/CreateAuction";
+import ProtectedRoute from "./ProtectedRoute";
+import AuctionList from "./views/auctionList/AuctionList";
+import UserProfile from "./views/userProfile/UserProfile";
+import UpdateAuction from "./views/createAuction/UpdateAuction";
+import { USER_ROLE } from "./utils/propertyResolver";
+import AdminLayout from "./layout/AdminLayout";
+import UserLayout from "./layout/UserLayout";
+import AuctionManagement from "./admin/auctionManagement/AuctionManagement";
+import UserCreate from "./admin/userManagement/UserCreate";
+import UserManagement from "./admin/userManagement/UserManagement";
+import UserView from "./admin/userManagement/components/UserView";
+import UserUpdate from "./admin/userManagement/components/UserUpdate";
+import AuctionBids from "./views/auctionBids/AuctionBids";
 function App() {
-  const [count, setCount] = useState(0)
-
+  const userRole = useSelector((state)=>state.user?.loginUserDetails?.role_id);
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      <BrowserRouter>
+        <Routes>
+          {/* Admin routes */}
+          {[USER_ROLE.ADMIN, USER_ROLE.SUPER_ADMIN].includes(userRole) && (
+            <Route element={<AdminLayout />}>
+              <Route path={routeConstants.SIGN_UP} element={<Signup />} />
+              <Route path={routeConstants.ADMIN_AUCTION_LIST} element={<AuctionManagement />} />
+              <Route path={routeConstants.ADMIN_USER_CREATE} element={<UserCreate />} />
+              <Route path={routeConstants.ADMIN_USER_LIST} element={<UserManagement />} />
+              <Route path={`${routeConstants.ADMIN_USER_VIEW}/:id`} element={<UserView />} />
+              <Route path={`${routeConstants.ADMIN_USER_EDIT}/:id`} element={<UserUpdate />} />
+            </Route>
+          )}
 
-      <div className="ticks"></div>
+          {/* normal user route */}
+          <Route element={<UserLayout />}>
+            <Route path={routeConstants.HOME_PAGE} element={<Home />} />
+            <Route path={routeConstants.SIGN_UP} element={<Signup />} />
+            <Route path={routeConstants.SIGN_IN} element={<Signin />} />
+            <Route
+              path={routeConstants.FORGOT_PASSWORD}
+              element={<ForgotPassword />}
+            />
+            <Route
+              path={routeConstants.VERIFY_ACCOUNT}
+              element={<VerifyAccount />}
+            />
+            <Route
+              path={routeConstants.RESET_PASSWORD}
+              element={<ResetPassword />}
+            />
+            <Route
+              path={`${routeConstants.AUCTION_DETAIL}/:auction_id`}
+              element={<AuctionDetails />}
+            />
+            <Route
+              path={`${routeConstants.AUCTION_LIST}`}
+              element={<AuctionList />}
+            />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+            <Route
+              path={routeConstants.USER_PROFILE}
+              element={<UserProfile />}
+            />
+            <Route
+              path={`${routeConstants.AUCTION_UPDATE}/:auction_id`}
+              element={<UpdateAuction />}
+            />
+             <Route
+              path={`${routeConstants.AUCTION_BID_LIST}/:auction_id`}
+              element={<AuctionBids />}
+            />
+            {/* Protected routes */}
+            <Route
+              element={
+                <ProtectedRoute allowedRoles={["admin", "super-admin"]} />
+              }
+            >
+              <Route
+                path={routeConstants.AUCTION_CREATE}
+                element={<CreateAuction />}
+              />
+            </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

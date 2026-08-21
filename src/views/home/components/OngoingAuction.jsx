@@ -14,17 +14,13 @@ export default function OngoingAuction() {
   useEffect(() => {
     dispatch(getAuctionListForHome());
   }, []);
-  const handleViewAll = ()=>{
-    navigate(routeConstants.AUCTION_LIST)
-  }
+  const handleViewAll = () => {
+    navigate(routeConstants.AUCTION_LIST);
+  };
   return (
-    <div className="ongoing-auction-wrapper">
-      {
-        isLoading && (
-          <Loader />
-        )
-      }
-      <div className="heading d-flex justify-content-center align-items-center">
+    <div className="bg-[#e7e5e5] pb-5">
+      {isLoading && <Loader />}
+      <div className="h-[122px] font-[Inter] font-extrabold text-5xl leading-none text-center uppercase bg-primary text-white d-flex justify-content-center align-items-center">
         <h1>On Going Auction</h1>
       </div>
       <div className="p-4">
@@ -36,8 +32,13 @@ export default function OngoingAuction() {
           ))}
         </Row>
       </div>
-      <div className="view-all-btn text-center">
-        <button onClick={handleViewAll}>View All</button>
+      <div className="text-center">
+        <button
+          onClick={handleViewAll}
+          className="w-[218px] rounded-[62px] py-2.5 px-[54px] bg-brand-gradient text-white border-none"
+        >
+          View All
+        </button>
       </div>
     </div>
   );

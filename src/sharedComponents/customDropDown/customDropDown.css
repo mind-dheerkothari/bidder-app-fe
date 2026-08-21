@@ -1,0 +1,63 @@
+/*
+ * react-select renders its own internal DOM under the "custom-select"
+ * classNamePrefix (control, menu, option, ...) - not JSX elements we own,
+ * so these stay as plain scoped CSS rather than Tailwind utilities.
+ */
+.custom-dropdown-wrapper .custom-select__control {
+  padding: 4px;
+  border: 1px solid #a19d9e;
+  border-radius: 5px;
+  background: transparent;
+  color: black;
+  box-shadow: none;
+}
+
+.custom-dropdown-wrapper .custom-select__placeholder {
+  color: #a9a9a9;
+}
+
+.custom-dropdown-wrapper .custom-select__single-value {
+  color: black;
+}
+
+.custom-dropdown-wrapper .custom-select__multi-value {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.custom-dropdown-wrapper .custom-select__multi-value__label {
+  color: black;
+}
+
+.custom-dropdown-wrapper .custom-select__multi-value__remove {
+  cursor: pointer;
+  color: #ff0000;
+}
+
+.custom-dropdown-wrapper .custom-select__multi-value__remove:hover {
+  background-color: red;
+  color: white;
+}
+
+.custom-dropdown-wrapper .custom-select__menu {
+  background-color: white;
+  color: black;
+}
+
+.custom-dropdown-wrapper .custom-select__option {
+  color: black;
+}
+
+.custom-dropdown-wrapper .custom-select__option:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.custom-dropdown-wrapper .custom-select__option--is-selected {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: black;
+}
+
+.custom-dropdown-wrapper .custom-select__option--is-focused {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: black;
+}

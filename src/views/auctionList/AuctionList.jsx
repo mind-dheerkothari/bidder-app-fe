@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./auctionList.scss";
 import InfiniteScroller from "../../sharedComponents/infintiScroller/InfiniteScroller";
 import { Col, Row } from "reactstrap";
 import AuctionCard from "../../sharedComponents/auctionCard/AuctionCard";
@@ -57,7 +56,7 @@ export default function AuctionList() {
     setPage(PAGINATION_CONSTANT.PAGE_ONE);
   };
   return (
-    <div className="auction-list-wrapper p-4">
+    <div className="p-4">
       {isLoading && <Loader />}
       <CustomBreadCrumb
         items={[
@@ -78,7 +77,7 @@ export default function AuctionList() {
         {/* Auction Card and Sorting */}
         <Col lg={10} md={8} sm={12}>
           <div className="d-flex justify-content-between align-items-center mb-3">
-            <h2 className="heading-text">Ongoing Auction</h2>
+            <h2 className="font-bold text-xl text-[#9f3247]">Ongoing Auction</h2>
             <div className="d-flex">
               <label className="me-2">Sort by:</label>
               {/* Replace this with an actual dropdown */}

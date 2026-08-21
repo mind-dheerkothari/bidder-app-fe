@@ -29,7 +29,7 @@ export default function UpdateAuction() {
   }, [auctionDetail, auction_id]);
   
   return (
-    <div className="create-auction-wrapper">
+    <div className="h-[calc(100vh-80px)] bg-[#f2f0f1] p-10">
       <AuctionIndex auctionData={auctionDetail} />
     </div>
   );

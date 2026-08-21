@@ -134,7 +134,7 @@ export default function MyBidList() {
   return (
     <div>
       {isLoading && <Loader />}
-      <div className="content-card">
+      <div className="table-card-wrapper">
         <MyBidFilter filterState={filterState} handleApply={handleApply} />
         {myBidList?.data?.length > 0 && (
           <CustomTable

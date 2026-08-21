@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import "./userHeader.scss";
 import userProfile from "../../../assets/icons/warning.svg";
 import { FaCamera, FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -46,13 +45,16 @@ export default function UserHeader() {
     e.target.value = "";
   };
   return (
-    <div className="user-header-wrapper p-4">
-      <div className="d-flex justify-content-between align-items-center header-bg p-4">
-        <div className="profile-pic-wrapper" onClick={handleFileClick}>
-          {/* <img src={userProfile} alt="User Profile" className="profile-pic" /> */}
+    <div className="p-4">
+      <div className="d-flex justify-content-between align-items-center bg-brand-start rounded-[20px] p-4">
+        <div
+          className="group relative w-[150px] h-[150px] rounded-full overflow-hidden cursor-pointer transition duration-300 border-2 border-white bg-white"
+          onClick={handleFileClick}
+        >
+          {/* <img src={userProfile} alt="User Profile" className="w-full h-full object-cover rounded-full transition duration-300" /> */}
           <CustomAvatar firstName={loginUserDetails?.first_name} lastName={loginUserDetails?.last_name} />
-          <div className="overlay">
-            <FaCamera className="camera-icon" />
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300 rounded-full">
+            <FaCamera className="text-white h-[25px]" />
           </div>
           <input
             type="file"
@@ -62,9 +64,12 @@ export default function UserHeader() {
             onChange={handleFileChange}
           />
         </div>
-        <button className="create-auction-btn" onClick={handleCreateAuction}>
+        <button
+          className="flex justify-center items-center h-10 p-[10px] text-white border-2 border-white rounded-lg text-base cursor-pointer transition-colors duration-300 bg-transparent font-medium hover:bg-white hover:text-black"
+          onClick={handleCreateAuction}
+        >
           Create Auction
-          <FaArrowRight className="arrow-icon ms-2" />
+          <FaArrowRight className="ms-2" />
         </button>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./customEditor.scss";
+import "./customEditor.css";
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
 import { FormGroup, Label } from "reactstrap";
@@ -54,7 +54,7 @@ export default function CustomEditor({
     <div className="custom-editor-wrapper position-relative">
       <FormGroup>
         {label && (
-          <Label className="form-label">
+          <Label className="form-label !text-black !font-bold !m-0 !mb-[5px]">
             {label}
             {required && <span className="text-danger ms-1">*</span>}
           </Label>
@@ -70,7 +70,7 @@ export default function CustomEditor({
         {error && <div className="invalid-feedback d-block">{error}</div>}
         {/* Char count */}
         {maxLength && (
-          <div className="char-counter">
+          <div className="absolute bottom-2 right-4 text-[0.85rem] text-[#6c757d] pointer-events-none">
             {charCount} / {maxLength}
           </div>
         )}

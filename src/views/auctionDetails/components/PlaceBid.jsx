@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./placeBid.scss";
 import CustomInput from "../../../sharedComponents/customInput/CustomInput";
 import { formatDate, getTimeLeft } from "../../../utils/commonFunction";
 import { useDispatch, useSelector } from "react-redux";
@@ -62,24 +61,28 @@ export default function PlaceBid({ auctionDetail, toggleModal }) {
     generateRandomAmt(auctionDetail?.base_price);
   }, [auctionDetail?.base_price]);
   return (
-    <div className="place-bid-wrapper">
-      <div className="heading">
-        <p>
+    <div className="bg-white mx-auto text-left">
+      <div>
+        <p className="text-[#9f3247] text-sm">
           {" "}
           Time left {getTimeLeft(auctionDetail?.end_date)} (
           {formatDate(auctionDetail?.end_date, "ddd")},{" "}
           {formatDate(auctionDetail?.end_date, "h:mm A")})
         </p>
       </div>
-      <div className="bid-price-btn">
+      <div className="flex gap-[10px] my-[15px] justify-center items-center">
         {bidAmtArr?.map((item) => (
-          <button key={item} onClick={() => handleBidButtonClick(item)}>
+          <button
+            key={item}
+            onClick={() => handleBidButtonClick(item)}
+            className="bg-[linear-gradient(90deg,#7b2334,#9f3247)] text-white border-none p-[10px] rounded-[5px] text-base font-bold cursor-pointer transition-all duration-300 hover:bg-[linear-gradient(90deg,#9f3247,#7b2334)]"
+          >
             Bid INR: {item}
           </button>
         ))}
       </div>
-      <div className="divider"></div>
-      <div className="bid-form">
+      <div className="border-b border-primary my-5"></div>
+      <div>
         <CustomInput
           label="Your max bid"
           name="your-bid"
@@ -91,7 +94,7 @@ export default function PlaceBid({ auctionDetail, toggleModal }) {
         />
         <button
           disabled={!bidValue || error || isLoading}
-          className="mt-3"
+          className="mt-3 w-full p-[10px] bg-primary text-white border-none rounded-[5px] text-base cursor-pointer transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50 hover:enabled:bg-[#7e2838]"
           onClick={handlePlaceBid}
         >
           Place bid

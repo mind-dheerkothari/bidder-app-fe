@@ -1,7 +1,8 @@
 import axios from "axios";
 // Axios instance
 const Axios = axios.create({
-  baseURL: process.env.REACT_PUBLIC_API_BASE_URL || "http://localhost:3001/api/" ,
+  baseURL:
+    import.meta.env.VITE_PUBLIC_API_BASE_URL || "http://localhost:3001/api/",
   headers: {
     "Content-Type": "application/json",
   },
@@ -19,7 +20,7 @@ Axios.interceptors.request.use(
   },
   function (error) {
     return Promise.reject(error);
-  }
+  },
 );
 
 // Add a response interceptor
@@ -30,7 +31,7 @@ Axios.interceptors.response.use(
   function (error) {
     // Handle response error (400) token related error user logout
     return Promise.reject(error);
-  }
+  },
 );
 
 export default Axios;

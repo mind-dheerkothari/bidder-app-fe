@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./auctionDetail.scss";
 import { Row, Button, Col } from "reactstrap";
 import heartIcon from "../../assets/icons/heart.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -51,7 +50,7 @@ export default function AuctionDetails() {
           <NoRecord />
         </div>
       ) : (
-        <div className="auction-detail-wrapper">
+        <div className="p-10 text-primary">
           <CustomBreadCrumb
             items={[
               { name: "Home", route: routeConstants.HOME_PAGE },
@@ -67,15 +66,19 @@ export default function AuctionDetails() {
             </Col>
             {/* Details take 50% width */}
             <Col md={6}>
-              <div className="auction-details">
-                <p className="heading">{auctionDetail?.item_name}</p>
-                <p className="time-left">
+              <div className="pl-[5px]">
+                <p className="text-2xl font-bold text-black">
+                  {auctionDetail?.item_name}
+                </p>
+                <p className="text-sm text-primary">
                   Time left {getTimeLeft(auctionDetail?.end_date)} (
                   {formatDate(auctionDetail?.end_date, "ddd")},{" "}
                   {formatDate(auctionDetail?.end_date, "h:mm A")})
                 </p>
-                <p className="price">RS. {auctionDetail?.base_price}</p>
-                <p className="auction-info">
+                <p className="text-[22px] font-semibold text-primary [&_span]:text-base [&_span]:text-primary">
+                  RS. {auctionDetail?.base_price}
+                </p>
+                <p className="text-sm text-black leading-[1.6]">
                   <span
                     dangerouslySetInnerHTML={{
                       __html: auctionDetail?.description,
@@ -83,24 +86,31 @@ export default function AuctionDetails() {
                   />
                 </p>
                 {/* Seller Information Section */}
-                <div className="seller-info">
-                  <h1>Seller Information</h1>
-                  <p>
+                <div className="mt-[30px] p-5 rounded-[10px] border border-black">
+                  <h1 className="text-[22px] font-bold text-primary mb-[10px]">
+                    Seller Information
+                  </h1>
+                  <p className="text-sm text-secondary leading-[1.6]">
                     <strong>First Name:</strong>{" "}
                     {capitalizeFirstChar(auctionDetail?.creator?.first_name)}
                   </p>
-                  <p>
+                  <p className="text-sm text-secondary leading-[1.6]">
                     <strong>Last Name: </strong>
                     {capitalizeFirstChar(auctionDetail?.creator?.last_name)}
                   </p>
-                  <p>
+                  <p className="text-sm text-secondary leading-[1.6]">
                     <strong>Email:</strong> {auctionDetail?.creator?.email}
                   </p>
                 </div>
                 {shouldBidNowCTAVisible() && (
-                  <div className="bid-now-btn">
-                    <Button onClick={toggleModal}>Bid Now</Button>
-                    <div className="save-draft">
+                  <div className="flex justify-start mt-[30px] gap-[30px]">
+                    <Button
+                      onClick={toggleModal}
+                      className="!bg-brand-start !text-white text-base !p-[10px] !rounded-[5px] !border-none transition-all duration-300 !min-w-[60%] hover:!bg-[#b2496a]"
+                    >
+                      Bid Now
+                    </Button>
+                    <div className="flex w-10 h-10 rounded border border-black p-[10px] cursor-pointer text-black">
                       <img src={heartIcon} alt="save" />
                     </div>
                   </div>

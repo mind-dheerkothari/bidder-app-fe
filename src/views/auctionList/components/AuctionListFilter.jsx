@@ -58,13 +58,15 @@ export default function AuctionListFilter({
     filterState.selectedCategory ? 1 : 0,
   ].reduce((a, b) => a + b, 0);
   return (
-    <div className="auction-filter-wrapper">
+    <div className="min-h-[390px] p-5 border border-[#9f32471a] rounded-[20px] bg-white">
       {/* Filter header */}
       <div className="d-flex justify-content-between align-items-center mb-2">
-        <h1 className="heading-text">
+        <h1 className="font-bold text-xl text-[#9f3247]">
           Filter
           {filterCount > 0 && (
-            <span className="filter-count">{filterCount}</span>
+            <span className="bg-[#7c2638] text-white rounded-full w-[22px] h-[22px] inline-flex items-center justify-center text-xs align-middle ml-[5px]">
+              {filterCount}
+            </span>
           )}
         </h1>
         <img src={filterIcon} alt="filter icon" />
@@ -72,11 +74,11 @@ export default function AuctionListFilter({
       <hr className="m-0 mb-3" />
       {/* Price Collapse */}
       <div
-        className="collapse-card mt-3"
+        className="cursor-pointer py-[10px] border-b border-[#eee] mt-3"
         onClick={() => setPriceOpen(!priceOpen)}
       >
         <div className="d-flex justify-content-between align-items-center">
-          <h5 className="mb-0">Price</h5>
+          <h5 className="mb-0 text-lg font-semibold text-[#333]">Price</h5>
           <img
             src={priceOpen ? upArrowIcon : downArrowIcon}
             alt="filter icon"
@@ -136,11 +138,11 @@ export default function AuctionListFilter({
       )}
       {/* Category Collapse */}
       <div
-        className="collapse-card mt-3"
+        className="cursor-pointer py-[10px] border-b border-[#eee] mt-3"
         onClick={() => setCategoryOpen(!categoryOpen)}
       >
         <div className="d-flex justify-content-between align-items-center">
-          <h5 className="mb-0">Category</h5>
+          <h5 className="mb-0 text-lg font-semibold text-[#333]">Category</h5>
           <img
             src={categoryOpen ? upArrowIcon : downArrowIcon}
             alt="filter icon"
@@ -162,11 +164,19 @@ export default function AuctionListFilter({
       )}
 
       {/* Filter buttons */}
-      <div className="filter-btn mt-4">
-        <button onClick={handleApplyFilter} disabled={!isFilterBtnEnable}>
+      <div className="flex flex-col gap-[10px] mt-4">
+        <button
+          onClick={handleApplyFilter}
+          disabled={!isFilterBtnEnable}
+          className="w-full h-12 border-none rounded-[25px] bg-[#9f3247] text-white font-semibold text-base transition-all duration-300 cursor-pointer hover:enabled:bg-[#7c2638] active:enabled:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
+        >
           Apply Filter
         </button>
-        <button onClick={handleResetFilter} disabled={filterCount === 0}>
+        <button
+          onClick={handleResetFilter}
+          disabled={filterCount === 0}
+          className="w-full h-12 rounded-[25px] bg-transparent text-[#9f3247] border border-[#9f3247] font-semibold text-base transition-all duration-300 cursor-pointer hover:enabled:bg-[#9f3247] hover:enabled:text-white active:enabled:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
+        >
           Reset Filter
         </button>
       </div>

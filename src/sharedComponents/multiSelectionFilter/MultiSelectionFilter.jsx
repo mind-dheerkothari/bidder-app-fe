@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./multiSelectionFilter.scss";
 import {
   Dropdown,
   DropdownToggle,
@@ -69,19 +68,22 @@ export default function MultiSelectionFilter({
 
   return (
     <>
-      <Dropdown
-        isOpen={dropdownOpen}
-        toggle={toggle}
-        className="filter-dropdown-wrapper"
-      >
-        <DropdownToggle caret disabled={disabled} color="light">
+      <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+        <DropdownToggle
+          caret
+          disabled={disabled}
+          color="light"
+          className="!flex !items-center !justify-between !w-full !bg-transparent !border !border-secondary !font-medium !text-[#333333] !h-[45px] hover:!bg-[#f8f9fa] hover:!border-[#adb5bd] after:!ml-auto"
+        >
           {label}
           {value?.length > 0 && (
-            <span className="selected-filter-counter">{value?.length}</span>
+            <span className="bg-brand-start text-white rounded-full py-1 px-2 text-xs min-w-[24px] h-6 flex items-center justify-center leading-none ml-[5px]">
+              {value?.length}
+            </span>
           )}
         </DropdownToggle>
-        <DropdownMenu className="filter-dropdown-menu">
-          <div className="filter-list-wrapper">
+        <DropdownMenu className="!rounded-lg !shadow-[0_4px_20px_rgba(0,0,0,0.1)] !border !border-[#dee2e6] !bg-white !w-full">
+          <div className="max-h-[300px] overflow-y-auto p-[5px]">
             {isSearchable && (
               <div className="mb-2 px-2">
                 <Input
@@ -93,10 +95,10 @@ export default function MultiSelectionFilter({
                 />
               </div>
             )}
-            <div className="form-check d-flex align-items-center cursor-pointer">
+            <div className="form-check d-flex align-items-center cursor-text hover:bg-[#f1f3f5] focus:!bg-white">
               <Input
                 type="checkbox"
-                className="form-check-input me-2"
+                className="form-check-input me-2 !cursor-pointer !mt-0 !border !border-[#212529]"
                 id={checkboxIdRef.current}
                 disabled={disabled}
                 onChange={handleSelectAllToggle}
@@ -104,7 +106,7 @@ export default function MultiSelectionFilter({
               />
               <label
                 htmlFor={checkboxIdRef.current}
-                className="form-check-label"
+                className="form-check-label !cursor-pointer !mt-2 !text-[#212529]"
               >
                 {isAllSelected ? "Deselect All" : "Select All"}
               </label>
@@ -112,20 +114,23 @@ export default function MultiSelectionFilter({
             <div className="checkbox-list">
               {filteredOption?.map((option) => (
                 <DropdownItem
-                  className="px-0 drop-down-item"
+                  className="px-0 !bg-transparent cursor-text hover:!bg-transparent focus:!bg-transparent active:!bg-transparent"
                   key={option?.value}
                   toggle={false}
                 >
                   <div className="form-check d-flex align-items-center">
                     <Input
                       type="checkbox"
-                      className="form-check-input me-2"
+                      className="form-check-input me-2 !cursor-pointer !mt-0 !border !border-[#212529]"
                       id={option?.value}
                       disabled={disabled}
                       onChange={() => handleChange(option)}
                       checked={isSelected(option)}
                     />
-                    <label htmlFor={option?.value} className="form-check-label">
+                    <label
+                      htmlFor={option?.value}
+                      className="form-check-label !cursor-pointer !mt-2 !text-[#212529]"
+                    >
                       {option?.label}
                     </label>
                   </div>
@@ -139,11 +144,19 @@ export default function MultiSelectionFilter({
             </div>
           </div>
 
-          <div className="filter-btn-wrapper d-flex justify-content-between mt-3 gap-2">
-            <Button size="sm" className="reset-btn" onClick={handleReset}>
+          <div className="d-flex justify-content-between mt-3 gap-2 border-t-2 border-[#212529]">
+            <Button
+              size="sm"
+              className="!min-w-[70px] !m-[10px] !border-2 !border-brand-start !bg-transparent !text-[#212529] !font-bold hover:!bg-brand-start hover:!text-white"
+              onClick={handleReset}
+            >
               Reset
             </Button>
-            <Button size="sm" className="apply-btn" onClick={handleApply}>
+            <Button
+              size="sm"
+              className="!min-w-[70px] !m-[10px] !border-none !bg-brand-start !font-bold"
+              onClick={handleApply}
+            >
               Apply
             </Button>
           </div>

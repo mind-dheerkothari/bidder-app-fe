@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FaAngleDown, FaHome, FaUsers } from "react-icons/fa";
 import { routeConstants } from "../utils/routeConstant";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./adminSidebar.scss";
 export default function AdminSidebar() {
   const [expandedSections, setExpandedSections] = useState({});
   const navigate = useNavigate();
@@ -59,13 +58,15 @@ export default function AdminSidebar() {
     }));
   };
   return (
-    <div className="admin-sidebar-wrapper">
-      <ul className="menu-list">
+    <div className="w-[250px] h-screen bg-[#f2f0f1] text-black py-2 font-['Segoe_UI',sans-serif] border-r-2 border-white">
+      <ul className="list-none p-0 m-0">
         {menItems?.map((item) => (
-          <li className="menu-item" key={item?.id}>
+          <li key={item?.id}>
             <div
-              className={`menu-link ${
-                item?.path === location?.pathname ? "active" : ""
+              className={`flex items-center py-[10px] px-5 cursor-pointer rounded-lg text-sm font-medium transition-colors duration-300 hover:bg-[#e0e0e0] ${
+                item?.path === location?.pathname
+                  ? "text-[#673ab7] font-bold"
+                  : "text-black/60"
               }`}
               onClick={() =>
                 item?.children
@@ -73,22 +74,24 @@ export default function AdminSidebar() {
                   : handleNavigation(item?.path)
               }
             >
-              <span className="icon">{item?.icon}</span>
+              <span className="mr-[10px]">{item?.icon}</span>
               <span>{item?.label}</span>
               {item?.children && (
                 <FaAngleDown
-                  className={`arrow ${
-                    expandedSections[item?.id] ? "open" : ""
+                  className={`ml-auto transition-transform duration-300 ${
+                    expandedSections[item?.id] ? "rotate-180" : ""
                   } `}
                 />
               )}
             </div>
             {item?.children && expandedSections[item?.id] && (
-              <ul className="submenu">
+              <ul className="list-none pl-8 cursor-pointer rounded-lg transition-colors duration-300">
                 {item?.children?.map((subItem) => (
                   <li
-                    className={`submenu-item ${
-                      subItem?.path === location?.pathname ? "active" : ""
+                    className={`py-[5px] px-[10px] text-sm font-medium cursor-pointer transition-colors duration-200 ${
+                      subItem?.path === location?.pathname
+                        ? "text-[#673ab7] font-bold"
+                        : "text-black/60"
                     }`}
                     key={subItem?.id}
                     onClick={() => handleNavigation(subItem?.path)}

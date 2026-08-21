@@ -1,0 +1,85 @@
+@import "../../style/variables";
+
+.auction-detail-wrapper {
+  padding: 40px;
+  color: $primary-text;
+  .auction-details {
+    padding-left: 5px;
+    .heading {
+      font-size: 24px;
+      font-weight: bold;
+      color: $black-text;
+    }
+
+    .time-left {
+      font-size: 14px;
+      color: $primary-text;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: 600;
+      color: $primary-text;
+
+      span {
+        font-size: 16px;
+        color: $primary-text;
+      }
+    }
+
+    .auction-info {
+      font-size: 14px;
+      color: $black-text;
+      line-height: 1.6;
+    }
+    .seller-info {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid $black-text;
+      h1 {
+        font-size: 22px;
+        font-weight: bold;
+        color: $primary-text;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 14px;
+        color: $secondary-text;
+        line-height: 1.6;
+      }
+    }
+    .bid-now-btn {
+      display: flex;
+      justify-content: left;
+      margin-top: 30px;
+      gap: 30px;
+
+      button {
+        background: $primary-gradient-start;
+        color: $white;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        transition: all 0.3s ease-in-out;
+        min-width: 60% !important;
+        &:hover {
+          background: lighten($primary-gradient-end, 10%);
+        }
+      }
+      .save-draft {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        border: 1px solid $black-text;
+        padding: 10px;
+        cursor: pointer;
+        color: $black-text;
+      }
+    }
+  }
+
+}

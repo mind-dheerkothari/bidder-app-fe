@@ -1,0 +1,76 @@
+@import "../../style/_variables.scss";
+
+.stepper {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  position: relative;
+
+  .step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+
+    .icon-wrapper {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+      position: relative;
+      z-index: 11;
+      margin-top: -10px;
+
+      .step-image {
+        width: 24px;
+        height: 24px;
+        z-index: 100;
+      }
+
+      .tick-icon {
+        position: absolute;
+        z-index: 40;
+        right: 0;
+        bottom: 0;
+      }
+    }
+
+    .label {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    &.active .icon-wrapper {
+      background-color: #efb7c2;
+    }
+
+    .dash-line {
+      position: absolute;
+      top: 20px;
+      right: -50%;
+      width: 100%;
+      height: 2px;
+      background-image: repeating-linear-gradient(
+        to right,
+        $primary-text,
+        $primary-text 5px,
+        transparent 5px,
+        transparent 10px
+      );
+    }
+
+    &:last-child .dash-line {
+      display: none;
+    }
+  }
+}
+
+.step.disabled-step {
+  cursor: not-allowed;
+}

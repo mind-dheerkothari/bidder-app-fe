@@ -1,0 +1,49 @@
+.user-sidebar-wrapper {
+  display: flex;
+  .sidebar-card {
+    width: 250px;
+    max-height: 300px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 20px 10px #5f2ded05;
+    border-radius: 20px;
+    background-color: #fff;
+  }
+
+  .welcome-text {
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s;
+
+    .icon {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+
+    &.active {
+      color: #673ab7;
+      font-weight: bold;
+    }
+  }
+
+  .content {
+    flex: 1;
+    margin-left: 20px;
+  }
+}

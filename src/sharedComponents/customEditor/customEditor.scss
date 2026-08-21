@@ -1,0 +1,21 @@
+@import "../../style/variables";
+
+.custom-editor-wrapper {
+  label {
+    color: $black-text;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  .ql-editor {
+    min-height: 50vh;
+  }
+  .char-counter{
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    font-size: 0.85rem;
+    color: #6c757d;
+    pointer-events: none;
+  }
+}

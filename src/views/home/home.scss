@@ -1,0 +1,157 @@
+// Variables
+$primary-gradient-start: #7b2334;
+$primary-gradient-end: #9f3247;
+$primary-text: #9f3247;
+$secondary-text: #a19d9e;
+$error-text: #ffdde1;
+$black-text: #000;
+$light-black-text: #00000080;
+$background-grey: grey;
+$white: #ffffff;
+$link-text: #ffffff;
+$link-hover: #fff;
+$link-bg: #ffffff2b;
+.home-page-wrapper {
+  .landing-page-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    padding-bottom: 0;
+    background: #f2f0f1;
+    color: #000;
+
+    .left-side {
+      flex: 1;
+      padding: 2rem;
+
+      .heading {
+        font-family: "Roboto";
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 64px;
+        color: $primary-text;
+        vertical-align: middle;
+        text-transform: uppercase;
+        max-width: 577px;
+      }
+
+      p {
+        font-family: "Roboto";
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+        color: #9f324799;
+        max-width: 577px;
+      }
+
+      .time {
+        display: flex;
+        gap: 1rem;
+        margin: 1.5rem 0;
+
+        .time-box {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          .number {
+            background-color: #000;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: $white;
+            font-weight: bold;
+            font-size: 1.2rem;
+          }
+
+          .label {
+            margin-top: 0.5rem;
+            color: #000;
+            font-size: 0.9rem;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .bid-now-btn {
+        background: $primary-text;
+        color: $white;
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 60px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &:hover {
+          background: darken($primary-text, 10%);
+        }
+      }
+    }
+
+    .right-side {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .ongoing-auction-wrapper {
+    background-color: #e7e5e5;
+    padding-bottom: 20px;
+    .heading {
+      height: 122px;
+      font-family: "Inter";
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 100%;
+      text-align: center;
+      vertical-align: middle;
+      text-transform: uppercase;
+      background-color: $primary-text;
+      color: #fff;
+    }
+    .view-all-btn {
+      button {
+        width: 218px;
+        height: 52px;
+        border-radius: 62px;
+        gap: 12px;
+        padding-top: 16px;
+        padding-right: 54px;
+        padding-bottom: 16px;
+        padding-left: 54px;
+        border-width: 1px;
+        background: linear-gradient(89.28deg, #7b2334 5.99%, #9f3247 94.17%);
+        color: white;
+        border: none;
+
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .landing-page-wrapper {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    height: auto;
+
+    .left-side {
+      .time {
+        justify-content: center;
+      }
+    }
+  }
+}

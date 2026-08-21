@@ -1,0 +1,167 @@
+@import "../../style/_variables.scss";
+
+.header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(
+    90deg,
+    $primary-gradient-start,
+    $primary-gradient-end
+  );
+  color: $primary-text;
+  z-index: 1000;
+
+  .header-container {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+    padding: 1rem;
+  }
+
+  // Left Section: Logo & Navigation
+  .left-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+
+        li {
+          a {
+            text-decoration: none;
+            color: $link-text;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+
+            &.active {
+              font-weight: bold;
+              border-bottom: 2px solid #fff;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Right Section: Icons & Buttons
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .icon {
+      height: 1.5rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .btn-primary {
+      background: $link-bg;
+      color: $white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: mix($primary-gradient-start, $primary-gradient-end, 60%);
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: $white;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  // Responsive Design (Mobile)
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .nav {
+      display: none !important;
+    }
+
+    .open {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100vh;
+      background: linear-gradient(to bottom, #752030, #9f3247);
+      padding: 15px;
+      display: flex !important;
+      flex-direction: column;
+      text-align: center;
+      text-align: center;
+      padding-top: 20%;
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Ensures links are centered */
+        justify-content: center;
+        width: 100%;
+        gap: 15px;
+        margin-left: -40px !important;
+        li {
+          width: 100% !important;
+          a {
+            color: $white;
+            font-size: 1.2rem;
+            display: block;
+            padding: 10px;
+            transition: background 0.3s ease;
+            text-align: center;
+            &:hover {
+              background: rgba(255, 255, 255, 0.2);
+              border-radius: 10px;
+            }
+
+            &.active {
+              border: none !important;
+              background: rgba(255, 255, 255, 0.2);
+              border-radius: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    .right-section {
+      .menu-toggle {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+
+@import "../../style/variables";
+
+.auction-bids-wrapper {
+  h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: $primary-text;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    border-radius: 16px;
+    border: 1px solid lighten($secondary-text, 30%);
+    background-color: $white;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      border-color: lighten($secondary-text, 20%);
+    }
+
+    .card-body {
+      padding: 20px;
+
+      .bidder-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+
+        img {
+          border: 2px solid lighten($secondary-text, 30%);
+        }
+
+        h6 {
+          font-size: 16px;
+          font-weight: 500;
+          color: $primary-text;
+        }
+
+        small {
+          font-size: 13px;
+          color: $secondary-text;
+        }
+      }
+
+      .bid-details {
+        margin-bottom: 12px;
+
+        strong {
+          font-weight: 500;
+          color: $secondary-text;
+        }
+
+        span {
+          font-weight: 600;
+          color: $primary-text;
+        }
+      }
+
+      .badge {
+        text-transform: capitalize;
+        font-size: 13px;
+        padding: 6px 12px;
+        border-radius: 50px;
+      }
+
+      .action-buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+
+        .btn {
+          flex: 1;
+          border-radius: 30px;
+          font-size: 14px;
+          font-weight: 500;
+          padding: 8px 0;
+          transition: all 0.2s ease-in-out;
+          &:disabled{
+            cursor: not-allowed;
+          }
+
+          &.btn-success {
+            background: linear-gradient(
+              89.28deg,
+              $primary-gradient-start 5.99%,
+              $primary-gradient-end 94.17%
+            );
+            border: none;
+
+            &:hover {
+              background: linear-gradient(
+                89.28deg,
+                darken($primary-gradient-start, 8%) 5.99%,
+                $primary-gradient-end 94.17%
+              );
+            }
+          }
+
+          &.btn-danger {
+            background: #ef4444;
+            border: none;
+
+            &:hover {
+              background: darken(#ef4444, 7%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

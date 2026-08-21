@@ -1,0 +1,35 @@
+@import "../../style/variables";
+
+.custom-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  label {
+    color: $black-text;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .input-box {
+    padding: 10px;
+    border: 1px solid $secondary-text;
+    border-radius: 5px;
+    background: transparent;
+    color: black;
+
+    &:focus {
+      border-color: $primary-text;
+      outline: none;
+      border: none;
+    }
+
+    &::placeholder {
+      color: $placeholder-color;
+    }
+  }
+
+  .error {
+    font-size: 12px;
+  }
+}

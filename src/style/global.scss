@@ -1,0 +1,196 @@
+@import "./_variables.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  color: $primary-text;
+  background-color: $white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+label {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: $secondary-text;
+  margin-bottom: 8px;
+  display: block;
+}
+
+// Custom Input Styles
+.custom-input-box {
+  width: 100%;
+  height: 50px;
+  padding: 10px 15px;
+  border: 1px solid $secondary-text;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  background-color: $white;
+
+  &:focus {
+    outline: none;
+    // border-color: rgb(16, 48, 187) !important;]
+    border-color: #d7d3df !important;
+    // box-shadow: 0 0 8px rgba(36, 90, 236, 0.4) !important;
+    box-shadow: none !important;
+    background-color: lighten($white, 2%) !important;
+  }
+}
+
+// Button Styles
+.custom-button {
+  width: 100%;
+  height: 52px;
+  padding: 16px;
+  border: none;
+  border-radius: 62px !important;
+  background: linear-gradient(
+    89.28deg,
+    $primary-gradient-start 5.99%,
+    $primary-gradient-end 94.17%
+  );
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18.75px;
+  text-align: center;
+  color: $white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  outline: none;
+  border: none;
+  &:hover {
+    background: linear-gradient(
+      89.28deg,
+      darken($primary-gradient-start, 10%) 5.99%,
+      $primary-gradient-end 94.17%
+    );
+  }
+
+  &:disabled {
+    background: $secondary-text;
+    cursor: not-allowed;
+  }
+}
+
+.secondary-button {
+  width: 100%;
+  height: 52px;
+  padding: 16px;
+  border: none;
+  border-radius: 62px !important;
+  background: $placeholder-color;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18.75px;
+  text-align: center;
+  color: $white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  outline: none;
+  border: none;
+  &:hover {
+    background: linear-gradient(
+      89.28deg,
+      darken($primary-gradient-start, 10%) 5.99%,
+      $primary-gradient-end 94.17%
+    );
+  }
+
+  &:disabled {
+    background: $secondary-text;
+    cursor: not-allowed;
+  }
+}
+
+// Utility Classes
+.text-center {
+  text-align: center;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.error {
+  color: red;
+}
+
+.icon-hover {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.icon-hover.view:hover {
+  color: #3b82f6;
+}
+
+.icon-hover.edit:hover {
+  color: #22c55e;
+}
+.icon-hover.delete:hover {
+  color: #ef4444;
+}
+
+.table-card-wrapper {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 16px;
+}
+
+.light-grey-bg {
+  background-color: #f2f0f1;
+}
+
+.action-link {
+  color: #3b82f6;
+  cursor: pointer;
+}
+
+.disable {
+  cursor: not-allowed;
+  color: #d7d3df;
+}
+
+.reset-filter-btn {
+  padding: 10px;
+  border: 1px solid $secondary-text;
+  border-radius: 5px;
+  background: transparent;
+  color: black;
+  min-width: 150px;
+  &:hover{
+    border: none;
+    background-color: rgb(89, 89, 248);
+    color: white;
+  }
+}

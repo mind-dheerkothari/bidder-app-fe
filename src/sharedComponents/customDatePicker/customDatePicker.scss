@@ -1,0 +1,37 @@
+@import "../../style/variables";
+
+.custom-date-picker-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    color: $black-text;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 5px;
+  }
+
+  .rmdp-input {
+    padding: 10px;
+    height: 100%;
+    border: 1px solid $secondary-text;
+    border-radius: 5px;
+    background: transparent;
+    color: black;
+    width: 100%;
+    box-shadow: none;
+    &::placeholder {
+      color: $placeholder-color;
+    }
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  .rmdp-container {
+    width: 100% !important;
+    svg {
+      right: 10px !important;
+    }
+  }
+}

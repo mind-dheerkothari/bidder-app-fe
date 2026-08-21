@@ -1,0 +1,74 @@
+@import "../style/_variables.scss";
+
+.admin-sidebar-wrapper {
+  width: 250px;
+  height: 100vh;
+  background: #f2f0f1;
+  color: $black-text;
+  padding: 0.5rem 0;
+  font-family: "Segoe UI", sans-serif;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 2px solid #fff;
+  .menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .menu-item {
+      .menu-link {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.6);
+        transition: background 0.3s;
+        &:hover {
+          background-color: #e0e0e0;
+        }
+
+        &.active {
+          color: #673ab7;
+          font-weight: bold;
+        }
+
+        .icon {
+          margin-right: 10px;
+        }
+
+        .arrow {
+          margin-left: auto;
+          transition: transform 0.3s ease;
+        }
+
+        .arrow.open {
+          transform: rotate(180deg);
+        }
+      }
+
+      .submenu {
+        list-style: none;
+        padding-left: 2rem;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background 0.3s;
+
+        .submenu-item {
+          padding: 5px 10px;
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: rgba(0, 0, 0, 0.6);
+          cursor: pointer;
+          transition: color 0.2s ease;
+
+          &.active {
+            color: #673ab7;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

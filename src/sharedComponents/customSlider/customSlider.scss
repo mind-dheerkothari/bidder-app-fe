@@ -1,0 +1,125 @@
+@import "../../style/_variables.scss";
+
+.custom-slider-wrapper {
+  width: 100%;
+  position: relative;
+
+  .slick-slider {
+    .slick-list {
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .slick-prev,
+    .slick-next {
+      &::before {
+        font-size: 20px;
+        color: $primary-text;
+        opacity: 1;
+      }
+    }
+  }
+
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      border-radius: 20px;
+    }
+  }
+
+  .thumbnail-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 20px;
+    .thumbnail-preview-image {
+      width: 80px;
+      height: 50px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 5px;
+    }
+    .active {
+      border: 3px solid $primary-text;
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+  }
+
+  .thumbnail-scroll {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+    width: 100%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .scroll-btn {
+    background: $primary-gradient-start;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    height: 40px;
+    width: 40px;
+
+    border-radius: 60%;
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  .left-btn {
+    left: -20px;
+  }
+
+  .right-btn {
+    right: -10px;
+  }
+
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+
+    li {
+      width: auto;
+      margin: 0 5px;
+      transition: transform 0.3s ease-in-out;
+
+      &.slick-active {
+        transform: scale(1.2);
+      }
+
+      a {
+        display: block;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      img {
+        width: 80px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 4px;
+        transition: opacity 0.3s ease-in-out;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

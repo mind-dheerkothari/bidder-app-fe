@@ -1,0 +1,88 @@
+.auction-list-wrapper {
+  .heading-text {
+    font-weight: 700;
+    font-size: 20px;
+    color: #9f3247;
+  }
+  .auction-filter-wrapper {
+    min-height: 390px;
+    padding: 20px;
+    border: 1px solid #9f32471a;
+    border-radius: 20px;
+    background-color: #fff;
+
+    .filter-count {
+      background-color: #7c2638;
+      color: #fff;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      vertical-align: middle;
+      margin-left: 5px;
+    }
+
+    .collapse-card {
+      cursor: pointer;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      h5 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+      }
+      span {
+        font-size: 24px;
+        font-weight: bold;
+        color: #9f3247;
+      }
+    }
+
+    .filter-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .filter-btn button {
+      width: 100%;
+      height: 48px;
+      border: none;
+      border-radius: 25px;
+      background-color: #9f3247;
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .filter-btn button:hover:not(:disabled) {
+      background-color: #7c2638;
+    }
+    
+    .filter-btn button:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+    
+    .filter-btn button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    
+    .filter-btn button + button {
+      background-color: transparent;
+      color: #9f3247;
+      border: 1px solid #9f3247;
+    }
+    
+    .filter-btn button + button:hover:not(:disabled) {
+      background-color: #9f3247;
+      color: #fff;
+    }
+    
+  }
+}
